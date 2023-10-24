@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { Image } from 'sanity';
 
-import { urlForImage } from '@/sanity/sanity.image';
+import { urlForImage } from '@/sanity/sanity.helpers';
 import * as demo from '@/utils/demo.data';
 
 /**
