@@ -7,13 +7,15 @@ import type { HomePagePayload } from '@/types';
 
 import { HomePage, type HomePageProps } from './HomePage';
 
-export default function HomePagePreview({ data: initialData }: HomePageProps) {
-  const [data] = useLiveQuery<HomePagePayload | null>(
+export default function HomePagePreview({
+  pageData: initialData,
+}: HomePageProps) {
+  const [pageData] = useLiveQuery<HomePagePayload | null>(
     initialData,
     homePageQuery
   );
 
-  if (!data) {
+  if (!pageData) {
     return (
       <div className="text-center">
         Please start editing your Home document to see the preview!
@@ -21,5 +23,5 @@ export default function HomePagePreview({ data: initialData }: HomePageProps) {
     );
   }
 
-  return <HomePage data={data} />;
+  return <HomePage pageData={pageData} />;
 }
