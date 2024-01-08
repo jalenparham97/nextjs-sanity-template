@@ -14,6 +14,7 @@ import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
 import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel';
 import { media } from 'sanity-plugin-media';
 
+import { env } from '@/env';
 import { previewDocumentNode } from '@/sanity/plugins/previewPane';
 import { productionUrl } from '@/sanity/plugins/productionUrl';
 import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings';
@@ -25,8 +26,6 @@ import {
 } from '@/sanity/sanity.api';
 import { homeSchema } from '@/sanity/schemas/singletons/home.schema';
 
-const title = 'Beyond Biths Admin';
-
 const schemas = [homeSchema];
 
 const schemaNames: string[] = [homeSchema.name];
@@ -37,7 +36,7 @@ export default defineConfig({
   basePath: '/admin',
   projectId: projectId || '',
   dataset: dataset || '',
-  title,
+  title: env.NEXT_PUBLIC_SANITY_PROJECT_TITLE,
   schema: {
     // If you want more content types, you can add them to this array
     types: [...schemas],
